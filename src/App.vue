@@ -15,7 +15,7 @@
 					<div class="weather-box">
 						<div class="temp">{{ tempDisplay() }}</div>
 
-						<div class="weather">{{ wheaterDisplay() }}</div>
+						<div class="weather">{{ weatherDisplay() }}</div>
 					</div>
 				</div>
 			</div>
@@ -41,8 +41,8 @@ export default {
 			this.setResults(data);
 		},
 
-		setResults(results) {
-			this.weather = results;
+		setResults(response) {
+			this.weather = response;
 		},
 
 		cityName() {
@@ -73,11 +73,11 @@ export default {
 			return `${temp}${metric}`;
 		},
 
-		wheaterDisplay() {
+		weatherDisplay() {
 			const description = this.weather.weather[0].description;
 			// Deixa a primeira letra como maiuscula
-			const clima = description.charAt(0).toUpperCase() + description.slice(1);
-			return clima;
+			const weather = description.charAt(0).toUpperCase() + description.slice(1);
+			return weather;
 		},
 	},
 };
